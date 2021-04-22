@@ -30,7 +30,7 @@
 
 import CoreBluetooth
 
-open class CBMService: CBMAttribute {
+open class CBMService: NSObject {
     internal let identifier: UUID
     private let _uuid: CBMUUID
     
@@ -44,7 +44,7 @@ open class CBMService: CBMAttribute {
     open fileprivate(set) var isPrimary: Bool
     
     /// The Bluetooth UUID of the attribute.
-    open override var uuid: CBMUUID {
+    open var uuid: CBMUUID {
         return _uuid
     }
     
@@ -140,14 +140,14 @@ open class CBMServiceMock: CBMService {
     }
 }
 
-open class CBMCharacteristic: CBMAttribute {
+open class CBMCharacteristic: NSObject {
     internal let identifier: UUID
     private let _uuid: CBMUUID
     
     internal var _descriptors: [CBMDescriptor]?
     
     /// The Bluetooth UUID of the attribute.
-    open override var uuid: CBMUUID {
+    open var uuid: CBMUUID {
         return _uuid
     }
 
@@ -246,12 +246,12 @@ open class CBMCharacteristicMock: CBMCharacteristic {
     }
 }
 
-open class CBMDescriptor: CBMAttribute {
+open class CBMDescriptor: NSObject {
     internal let identifier: UUID
     private let _uuid: CBMUUID
     
     /// The Bluetooth UUID of the attribute.
-    open override var uuid: CBMUUID {
+    open var uuid: CBMUUID {
         return _uuid
     }
     

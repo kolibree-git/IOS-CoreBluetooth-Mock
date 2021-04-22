@@ -623,7 +623,7 @@ open class CBMCentralManagerMock: NSObject, CBMCentralManager {
 
 // MARK: - CBPeripheralMock implementation
 
-open class CBMPeripheralMock: CBMPeer, CBMPeripheral {
+open class CBMPeripheralMock: NSObject, CBMPeripheral {
     
     /// The parent central manager.
     private let manager: CBMCentralManagerMock
@@ -654,7 +654,7 @@ open class CBMPeripheralMock: CBMPeer, CBMPeripheral {
     
     open var delegate: CBMPeripheralDelegate?
     
-    open override var identifier: UUID {
+    open var identifier: UUID {
         return mock.identifier
     }
     open var name: String? {

@@ -225,7 +225,7 @@ public class CBMCentralManagerNative: NSObject, CBMCentralManager {
     #endif
 }
 
-public class CBMPeripheralNative: CBMPeer, CBMPeripheral {
+public class CBMPeripheralNative: NSObject, CBMPeripheral {
     
     private class CBPeripheralDelegateWrapper: NSObject, CBPeripheralDelegate {
         private var impl: CBMPeripheralNative
@@ -456,7 +456,7 @@ public class CBMPeripheralNative: CBMPeer, CBMPeripheral {
     }
     
     /// The unique, persistent identifier associated with the peer.
-    public override var identifier: UUID {
+    public var identifier: UUID {
         return peripheral.identifier
     }
     
